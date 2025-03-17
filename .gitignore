@@ -51,3 +51,7 @@ yarn-error.log*
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
+
+# Optional eslint cache
+.eslintcache
+.stylelintcache
