@@ -1,0 +1,7 @@
+@use "../shared/mixins" as *;
+
+@include font("Montserrat", "Montserrat-Thin", 300);
+@include font("Montserrat", "Montserrat-Regular", 400);
+@include font("Montserrat", "Montserrat-Medium", 500);
+@include font("Montserrat", "Montserrat-Semibold", 600);
+@include font("Montserrat", "Montserrat-Bold", 700);

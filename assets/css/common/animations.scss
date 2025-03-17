@@ -1,0 +1,119 @@
+@use "../shared/variables" as *;
+@use "../shared/mixins" as *;
+@use "../shared/themes" as *;
+
+.pressed {
+    scale: 98%;
+    transition: $default-transition, scale .2s ease-in;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.not-pressed {
+    scale: 100%;
+    transition: $default-transition, scale .2s ease-in;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.not-clicked {
+    &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        visibility: hidden;
+        overflow: hidden;
+        border-radius: 50%;
+        opacity: 0;
+        transform: translate(-50%, 0);
+        transition: opacity .6s ease-in, visibility .6s ease-in, width .6s ease-in, height .6s ease-in;
+    }
+}
+
+.clicked {
+    &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        visibility: visible;
+        overflow: hidden;
+        border-radius: 50%;
+        opacity: .6;
+        transform: translate(-50%, 0);
+        transition: opacity .6s ease-in, visibility .6s ease-in, width .6s ease-in, height .6s ease-in;
+        animation: scale-circle 2s normal;
+    }
+
+    @include themify($themes) {
+        &:after {
+            background-color: themed(cl-soft);
+        }
+    }
+
+    @keyframes scale-circle {
+        from {
+            width: .4rem;
+            height: .4rem;
+        }
+    
+        to {
+            width: 100rem;
+            height: 100rem;
+            opacity: 0;
+        }
+    }
+}
+
+.pulse {
+    animation: scale-pulse 2s infinite;
+
+    @keyframes scale-pulse {
+        0% {
+            transform: scale(0.7);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(0.7);
+        }
+    }
+}
+
+.skeleton-mask {
+    position: relative;
+    overflow: hidden;
+    border-radius: $r-xxs;
+
+    &.is-rounded {
+        border-radius: 50%;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        height: 100%;
+        transform: translateX(-100%);
+        animation: skeleton-animation 1.2s infinite;
+
+        @include themify($themes) {
+            background: themed(skeleton-gradient);
+        }
+    }
+
+    @keyframes skeleton-animation {
+        from {
+            transform: translateX(-100%);
+        }
+    
+        to {
+            transform: translateX(100%);
+        }
+    }
+}

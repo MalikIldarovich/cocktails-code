@@ -1,0 +1,139 @@
+@use "variables" as *;
+
+$themes: (
+    dark: (
+        /** Background and font colors **/
+        bg-main: $d-bg-main,
+        bg-soft: $d-bg-soft,
+        bg-accent: $d-bg-accent,
+        cl-main: $d-cl-main,
+        cl-soft: $d-cl-soft,
+
+        bg-nav: $d-bg-nav,
+        bg-header: $d-bg-header,
+        bg-box-alt: $d-bg-box-alt,
+        bg-box-main: $d-bg-box-main,
+        bg-skeleton: $d-bg-skeleton,
+        bg-container: $d-bg-container,
+        skeleton-gradient: $d-skeleton-gradient,
+        container-gradient: $d-container-gradient,
+
+        /** Base colors **/
+        base1000: $d-base1000,
+        base800: $d-base800,
+        base600: $d-base600,
+        base400: $d-base400,
+        base200: $d-base200,
+
+        /** Primary | Secondary colors **/
+        primary: $d-primary500,
+        secondary: $d-secondary500,
+
+        /** State colors **/
+        dark: $d-dark,
+        soft: $d-soft,
+        light: $d-light,
+        error: $d-error,
+        success: $d-success,
+        warning: $d-warning,
+        error-alt: $d-alt-error,
+        success-alt: $d-alt-success,
+        warning-alt: $d-alt-warning,
+
+        /** Borders **/
+        box-border-color: $d-box-border-color,
+        
+        /** Shadows **/
+        nav-shadow: $d-nav-shadow,
+        header-shadow: $d-header-shadow,
+
+        shadow-sm: $d-shadow-sm,
+        shadow-md: $d-shadow-md,
+        shadow-lg: $d-shadow-lg,
+        shadow-base: $d-shadow-base,
+        primary-shadow: $d-primary-shadow,
+        error-shadow: $d-error-shadow,
+        success-shadow: $d-success-shadow,
+        warning-shadow: $d-warning-shadow,
+    ),
+
+    light: (
+        /** Background and font colors **/
+        bg-main: $l-bg-main,
+        bg-soft: $l-bg-soft,
+        bg-accent: $l-bg-accent,
+        cl-main: $l-cl-main,
+        cl-soft: $l-cl-soft,
+
+        bg-nav: $l-bg-nav,
+        bg-header: $l-bg-header,
+        bg-box-alt: $l-bg-box-alt,
+        bg-box-main: $l-bg-box-main,
+        bg-skeleton: $l-bg-skeleton,
+        bg-container: $l-bg-container,
+        skeleton-gradient: $l-skeleton-gradient,
+        container-gradient: $l-container-gradient,
+
+        /** Base colors **/
+        base1000: $l-base1000,
+        base800: $l-base800,
+        base600: $l-base600,
+        base400: $l-base400,
+        base200: $l-base200,
+
+        /** Primary | Secondary colors **/
+        primary: $l-primary500,
+        secondary: $l-secondary500,
+
+        /** State colors **/
+        dark: $l-dark,
+        soft: $l-soft,
+        light: $l-light,
+        error: $l-error,
+        warning: $l-warning,
+        success: $l-success,
+        error-alt: $l-alt-error,
+        success-alt: $l-alt-success,
+        warning-alt: $l-alt-warning,
+        
+        /** Borders **/
+        box-border-color: $l-box-border-color,
+        
+        /** Shadows **/
+        nav-shadow: $l-nav-shadow,
+        header-shadow: $l-header-shadow,
+        shadow-sm: $l-shadow-sm,
+        shadow-md: $l-shadow-md,
+        shadow-lg: $l-shadow-lg,
+        shadow-base: $l-shadow-base,
+        primary-shadow: $l-primary-shadow,
+        error-shadow: $l-error-shadow,
+        success-shadow: $l-success-shadow,
+        warning-shadow: $l-warning-shadow,
+    )
+);
+
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+        div[class*="app theme-#{$theme}"] & {
+        $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), "#{$key}");
+                $theme-map: map-merge(
+                    $theme-map,
+                    (
+                        $key: $value,
+                    )
+                ) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+};
+
+@function themed($key) {
+    @return map-get($theme-map, $key)
+};
