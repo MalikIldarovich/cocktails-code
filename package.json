@@ -34,7 +34,7 @@
         "@venegrad/vue3-click-outside": "^1.0.2",
         "@vitejs/plugin-vue": "^5.0.5",
         "@vueuse/nuxt": "^10.9.0",
-        "axios": "^1.7.1",
+        "axios": "^1.8.2",
         "h3-proxy": "^1.13.0",
         "normalize.css": "^8.0.1",
         "nuxt": "^3.11.2",
