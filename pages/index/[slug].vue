@@ -77,7 +77,6 @@ import {
 
 
 /* components */
-import { Icon } from "@iconify/vue";
 import Heading from "@/components/ui/heading/Heading";
 import ArticleContainer from "@/components/common/articles/ArticleContainer";
 import ArticleContentCocktail from "@/components/common/articles/ArticleContentCocktail";
