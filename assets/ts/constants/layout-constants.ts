@@ -7,6 +7,11 @@ export interface INavigationItem {
     label: string;
 }
 
+export interface ISocialItem { 
+    to: string;
+    icon: string;
+}
+
 export const NAVIGATION_LIST: INavigationItem[] = [
     {
         id: 0,
@@ -39,5 +44,24 @@ export const NAVIGATION_LIST: INavigationItem[] = [
         color: "#fff",
         value: "kir",
         label: "Kir",
+    },
+];
+
+export const SOCIALS_LIST: ISocialItem[] = [
+    {
+        to: "http://t.me/d4rk_sid3/",
+        icon: "akar-icons:telegram-fill",
+    },
+    {
+        to: "https://www.linkedin.com/in/malik-ildarovich/",
+        icon: "entypo-social:linkedin-with-circle",
+    },
+    {
+        to: "https://github.com/MalikIldarovich/",
+        icon: "uiw:github",
+    },
+    {
+        to: "https://the-void-git-main-malikildarovich.vercel.app/",
+        icon: "vaadin:globe",
     },
 ];

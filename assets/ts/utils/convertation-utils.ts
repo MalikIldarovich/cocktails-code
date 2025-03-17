@@ -8,7 +8,7 @@ export function getFontSize() {
 }
 
 
-export function formatDate(dateString: string, locale: string = "ru-RU"): string {
+export function formatDate(dateString: string, locale: string = "en-EN"): string {
     const date = new Date(dateString);
 
     if (isNaN(date.getTime())) {
@@ -21,6 +21,5 @@ export function formatDate(dateString: string, locale: string = "ru-RU"): string
         year: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-    }).format(date)
-        .replace(" г.", ""); // Убираем лишний "г."
+    }).format(date);
 }
