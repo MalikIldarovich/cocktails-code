@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from "nuxt/config";
 import headConfig from "./config/head/headConfig";
 
+import fs from "fs";
 import path from "path";
 import upath from "upath";
 
@@ -8,10 +9,24 @@ import upath from "upath";
 const pathAssets = upath.toUnix(path.resolve(__dirname, "./assets"));
 
 export default defineNuxtConfig({
+    // @ts-expect-error TODO: чекнуть
     app: { head: headConfig },
     ssr: true,
     srcDir: ".",
     devtools: { enabled: true },
+
+    devServer: {
+        port: 3000,
+        host: "0.0.0.0",
+        https: process.env.HTTPS_KEY && process.env.HTTPS_CERT
+            ? {
+                key: fs.readFileSync(path.resolve(__dirname, process.env.HTTPS_KEY))
+                    .toString(),
+                cert: fs.readFileSync(path.resolve(__dirname, process.env.HTTPS_CERT))
+                    .toString(),
+            }
+            : false,
+    },
 
     runtimeConfig: {
         PROXY_URL: process.env.PROXY_URL,
@@ -80,6 +95,12 @@ export default defineNuxtConfig({
         vue: {
             script: {
                 propsDestructure: true,
+            },
+        },
+
+        server: {
+            hmr: {
+                clientPort: 3000,
             },
         },
 

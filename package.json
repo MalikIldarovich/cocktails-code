@@ -2,10 +2,15 @@
     "name": "cocktails_code",
     "private": true,
     "type": "module",
+    "license": "ISC",
     "author": {
         "name": "Malik Ildarovich",
         "email": "malikworking1994@gmail.com",
         "url": "https://the-void-fsz9bzg06-malikildarovich.vercel.app/"
+    },
+    "engines": {
+        "npm": ">=10.5",
+        "node": ">=20.13"
     },
     "scripts": {
         "build": "nuxt build",
