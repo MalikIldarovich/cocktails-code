@@ -1,6 +1,6 @@
 {
-    "name": "Тестовое задание для MixibitSolution",
-    "short_name": "Тестовое задание для MixibitSolution",
+    "name": "Cocktails Code",
+    "short_name": "Cocktails Code Test Task",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
