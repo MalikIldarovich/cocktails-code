@@ -103,11 +103,6 @@ export default defineNuxtConfig({
             },
         },
 
-        // optimizeDeps: {
-        //     exclude: ["fsevents"],
-        //     include: ["vue-docgen-api"],
-        // },
-
         /** Additional SCSS Files */
         css: {
             preprocessorOptions: {
