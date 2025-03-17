@@ -32,6 +32,8 @@
 
 /** ========== Font ============== **/
 @mixin font($alias, $name, $weight) {
+    @debug #{$alias, $name, $weight};
+
     @font-face {
         font-family: $alias;
         src: url("assets/fonts/" + $name + ".woff") format("woff");
