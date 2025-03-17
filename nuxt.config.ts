@@ -5,7 +5,6 @@ import fs from "fs";
 import path from "path";
 import upath from "upath";
 
-
 const pathAssets = upath.toUnix(path.resolve(__dirname, "./assets"));
 
 export default defineNuxtConfig({
@@ -104,10 +103,10 @@ export default defineNuxtConfig({
             },
         },
 
-        optimizeDeps: {
-            exclude: ["fsevents"],
-            include: ["vue-docgen-api"],
-        },
+        // optimizeDeps: {
+        //     exclude: ["fsevents"],
+        //     include: ["vue-docgen-api"],
+        // },
 
         /** Additional SCSS Files */
         css: {
