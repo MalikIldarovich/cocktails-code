@@ -20,4 +20,5 @@ const headConfig = {
     __dangerouslyDisableSanitizers: ["script", "noscript"],
 };
 
+
 export default headConfig;
