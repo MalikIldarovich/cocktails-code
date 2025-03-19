@@ -61,7 +61,7 @@ export const SOCIALS_LIST: ISocialItem[] = [
         icon: "uiw:github",
     },
     {
-        to: "https://the-void-git-main-malikildarovich.vercel.app/",
+        to: "https://the-void-ruby.vercel.app/",
         icon: "vaadin:globe",
     },
 ];
